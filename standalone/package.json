@@ -1,0 +1,19 @@
+{
+  "name": "standalone",
+  "version": "1.0.0",
+  "description": "Use Aurelia's dependency injection in a vanilla app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "author": "Joel Peterson",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^2.2.0-rc.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.2.0-rc.0"
+  }
+}
