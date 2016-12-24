@@ -9,12 +9,6 @@ import SimpleFormatter from './formatters/SimpleFormatter';
 import ComplicatedService from './services/ComplicatedService';
 import AllUserComponent from './components/AllUserComponent';
 
-const data = {
-    user: {},
-    commits: [],
-    otherUser: {},
-};
-
 const appRoot = document.querySelector('#appRoot');
 
 container.registerInstance(SimpleFormatter, SimpleFormatter);
