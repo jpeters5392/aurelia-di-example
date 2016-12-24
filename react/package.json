@@ -1,0 +1,31 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "description": "A sample React app to show how you can use Aurelia's dependency injection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "node server.js",
+    "watch": "watch \"npm run build\" src"
+  },
+  "author": "Joel Peterson",
+  "license": "MIT",
+  "dependencies": {
+    "aurelia-dependency-injection": "^1.2.1",
+    "aurelia-polyfills": "^1.1.1",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "hoist-non-react-statics": "^1.2.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "webpack": "^2.2.0-rc.2",
+    "whatwg-fetch": "^2.0.1"
+  },
+  "devDependencies": {
+    "express": "^4.14.0",
+    "watch": "^1.0.1"
+  }
+}

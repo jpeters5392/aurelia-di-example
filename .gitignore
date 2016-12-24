@@ -1,2 +1,4 @@
 standalone/node_modules/
 standalone/dist/app.bundle.js
+react/node_modules/
+react/dist/
