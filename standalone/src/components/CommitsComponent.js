@@ -1,6 +1,7 @@
 import CommitsService from '../services/CommitsService';
 import { inject } from 'aurelia-dependency-injection';
 
+// the container passes the required types to the constructor
 function CommitsComponent(commitsService) {
     this.commitsService = commitsService;
 }
@@ -27,5 +28,6 @@ CommitsComponent.prototype.render = function CommitsComponent$render() {
     });
 };
 
+// inject adds the required dependencies to the constructor function
 inject(CommitsService)(CommitsComponent);
 export default CommitsComponent;

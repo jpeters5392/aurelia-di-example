@@ -11,15 +11,20 @@ import AllUserComponent from './components/AllUserComponent';
 
 const appRoot = document.querySelector('#appRoot');
 
+// register all of the items with the global container
+// instances are existing objects that are returned by the container
 container.registerInstance(SimpleFormatter, SimpleFormatter);
-container.registerSingleton(ComplicatedService, ComplicatedService);
 container.registerInstance(UserService, UserService);
 container.registerInstance(CommitsService, CommitsService);
+// singletons are constructor functions that are new'd up once and then reused
+container.registerSingleton(ComplicatedService, ComplicatedService);
+// transients are always new'd up whenever requested
 container.registerTransient(CommitsComponent, CommitsComponent);
 container.registerTransient(UserProfileComponent, UserProfileComponent);
 container.registerTransient(ParentComponent, ParentComponent);
 container.registerTransient(AllUserComponent, AllUserComponent);
 
+// resolve the top level components and render them
 const userProfileComponent = container.get(UserProfileComponent);
 userProfileComponent.init(appRoot, container);
 userProfileComponent.render();

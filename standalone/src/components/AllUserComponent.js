@@ -1,6 +1,7 @@
 import UserService from '../services/UserService';
 import { inject, All } from 'aurelia-dependency-injection';
 
+// the container passes the required types to the constructor
 function AllUserProfileComponent(userServices) {
     this.userServices = userServices;
 }
@@ -22,5 +23,7 @@ AllUserProfileComponent.prototype.render = function AllUserProfileComponent$rend
     });
 };
 
+// inject adds the required dependencies to the constructor function
+// All.of means an array of all registered implementations will be returned
 inject(All.of(UserService))(AllUserProfileComponent);
 export default AllUserProfileComponent;

@@ -1,6 +1,7 @@
 import UserService from '../services/UserService';
 import { inject } from 'aurelia-dependency-injection';
 
+// the container passes the required types to the constructor
 function UserProfileComponent(userService) { 
     this.userService = userService;
 }
@@ -20,5 +21,6 @@ UserProfileComponent.prototype.render = function UserProfileComponent$render() {
     });
 };
 
+// inject adds the required dependencies to the constructor function
 inject(UserService)(UserProfileComponent);
 export default UserProfileComponent;

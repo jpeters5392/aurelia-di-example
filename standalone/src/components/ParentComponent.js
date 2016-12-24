@@ -5,6 +5,7 @@ import UserProfileComponent from './UserProfileComponent';
 import AllUserComponent from './AllUserComponent';
 import ComplicatedService from '../services/ComplicatedService';
 
+// the container passes the required types to the constructor
 function ParentComponent(complicatedService) {
     Object.defineProperty(this, 'complicatedService', {
         enumerable: true,
@@ -46,5 +47,7 @@ ParentComponent.prototype.render = function ParentComponent$render() {
     this.element.appendChild(childElement);
 };
 
+// inject adds the required dependencies to the constructor function
+// Lazy will inject a function that when called will return the requested type
 inject(Lazy.of(ComplicatedService))(ParentComponent);
 export default ParentComponent;

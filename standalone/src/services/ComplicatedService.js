@@ -10,5 +10,6 @@ ComplicatedService.prototype.generateString = function ComplicatedService$genera
     return this.simpleFormatter('testing');
 };
 
+// inject adds the required dependencies to the constructor function
 inject(SimpleFormatter)(ComplicatedService);
 export default ComplicatedService;
