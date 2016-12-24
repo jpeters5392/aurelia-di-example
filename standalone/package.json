@@ -6,14 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "node server.js",
+    "watch": "watch \"npm run build\" src"
   },
   "author": "Joel Peterson",
   "license": "MIT",
   "dependencies": {
-    "webpack": "^2.2.0-rc.2"
+    "aurelia-dependency-injection": "^1.2.1",
+    "aurelia-polyfills": "^1.1.1",
+    "webpack": "^2.2.0-rc.2",
+    "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
+    "express": "^4.14.0",
+    "watch": "^1.0.1",
     "webpack-dev-server": "^2.2.0-rc.0"
   }
 }

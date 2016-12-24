@@ -6,12 +6,16 @@ module.exports = {
   context: __dirname + "/src",
   entry: {
     app: "./index.js",
+    vendor: ["aurelia-dependency-injection", "whatwg-fetch"]
   },
   output: {
     filename: "[name].bundle.js",
     path: __dirname + "/dist",
     publicPath: "/",            // New
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"})
+  ],
   devServer: {
     contentBase: __dirname + "/src",  // New
   },
