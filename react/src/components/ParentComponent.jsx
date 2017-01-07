@@ -23,17 +23,19 @@ class ParentComponent extends React.Component {
     }
     render () {
         const generatedString = this.complicatedService.generateString();
+        const ProfileComponent = this.props.injections[1];
+        const UserComponent = this.props.injections[2];
         // pass down the container so that the child components will use that to resolve
         return (<div>
             <h2>Parent Component</h2>
-            <UserProfileComponent container={this.props.container} />
+            <ProfileComponent container={this.props.container} />
             <div>{generatedString}</div>
-            <AllUserComponent container={this.props.container} />
+            <UserComponent container={this.props.container} />
         </div>);
     }
 }
 
-export default configureInject({ useChildContainer: true }, [ Lazy.of(ComplicatedService) ])(ParentComponent);
+export default configureInject({ useChildContainer: true }, [ Lazy.of(ComplicatedService), UserProfileComponent, AllUserComponent ])(ParentComponent);
 
 
 
