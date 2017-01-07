@@ -14,10 +14,12 @@ import { fetchCommits } from './actionCreators/commits';
 import container from './di/rootContainer';
 import rootReducer from './reducers/index';
 import thunkMiddleware from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import { userSelector, USER_SELECTOR_ID } from './reducers/user';
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
 container.registerInstance(CommitsService);
 container.registerInstance(UserService);
@@ -26,14 +28,21 @@ container.registerInstance(SimpleFormatter);
 container.registerTransient(fetchUserProfile);
 container.registerTransient(fetchCommits);
 container.registerSingleton(ComplicatedService);
+container.registerInstance(USER_SELECTOR_ID, userSelector);
+container.registerInstance(UserProfileContainer);
+container.registerInstance(CommitsContainer);
+container.registerInstance(ParentComponent);
 
 class App extends React.Component {
   render () {
+    const Profile = container.get(UserProfileContainer);
+    const Commits = container.get(CommitsContainer);
+    const Parent = container.get(ParentComponent);
     return (
       <div>
-        <UserProfileContainer />
-        <CommitsContainer />
-        <ParentComponent />
+        <Profile />
+        <Commits />
+        <Parent />
       </div>
     );
   }

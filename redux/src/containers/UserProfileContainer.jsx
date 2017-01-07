@@ -1,18 +1,21 @@
-import { injectConnect } from '../di/containerHelpers';
+import { injectConnect, injectSelectors } from '../di/containerHelpers';
 import UserProfileComponent from '../components/UserProfileComponent.jsx';
 import ComplicatedService from '../services/ComplicatedService';
 import { fetchUserProfile } from '../actionCreators/user';
+import { USER_SELECTOR_ID } from '../reducers/user';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps, injectedUserSelector) => {
+    const user = injectedUserSelector(state);
     return {
-        firstName: state.user.user.firstName,
-        lastName: state.user.user.lastName,
-        email: state.user.user.email
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email
     }
 };
+const injectedStateToProps = injectSelectors([USER_SELECTOR_ID])(mapStateToProps);
 
 const mapDispatchToProps = {
     fetchUserProfile: fetchUserProfile
 };
 
-export default injectConnect({}, [ ComplicatedService ], null, mapStateToProps, mapDispatchToProps)(UserProfileComponent);
+export default injectConnect({}, [ ComplicatedService ], null, injectedStateToProps, mapDispatchToProps)(UserProfileComponent);

@@ -7,7 +7,7 @@ var APP_DIR = path.resolve(__dirname, 'src');
 var config = {
   entry: {
       app: APP_DIR + '/index.jsx',
-      vendor: ["aurelia-dependency-injection", "whatwg-fetch", 'aurelia-polyfills']
+      vendor: ["aurelia-dependency-injection", "whatwg-fetch", 'aurelia-polyfills', 'reselect', 'react', 'react-dom', 'redux', 'react-redux']
   },
   output: {
     filename: "[name].bundle.js",

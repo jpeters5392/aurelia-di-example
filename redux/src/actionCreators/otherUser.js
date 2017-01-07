@@ -1,7 +1,7 @@
 import { inject } from 'aurelia-dependency-injection';
 import OtherUserService from '../services/OtherUserService';
 
-export function fetchUserProfile(otherUserService) {
+export function fetchOtherUserProfile(otherUserService) {
     return function() {
         return (dispatch) => {
             dispatch({ type: 'FETCH_OTHER_USER' });
@@ -17,4 +17,4 @@ export function fetchUserProfile(otherUserService) {
     }
 }
 
-inject(OtherUserService)(fetchUserProfile);
+inject(OtherUserService)(fetchOtherUserProfile);
