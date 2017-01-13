@@ -1,10 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
-const currentDirectory = process.cwd();
-console.log('Building in ', currentDirectory);
-var BUILD_DIR = path.resolve(currentDirectory, 'dist');
-var APP_DIR = path.resolve(currentDirectory, 'src');
+var BUILD_DIR = path.resolve(__dirname, 'dist');
+var APP_DIR = path.resolve(__dirname, 'src');
 
 var config = {
   entry: {
